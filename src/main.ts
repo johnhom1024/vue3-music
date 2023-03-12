@@ -1,6 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import ArcoVue from '@arco-design/web-vue';
 
-import './assets/main.css'
+import { createPinia } from 'pinia';
 
-createApp(App).mount('#app')
+import { router } from '@/router/index';
+
+import './assets/style/main.css';
+import 'virtual:windi.css';
+import '@arco-design/web-vue/dist/arco.css';
+
+const app = createApp(App);
+const pinia = createPinia();
+
+app.use(pinia);
+app.use(router);
+app.use(ArcoVue);
+app.mount('#app');
